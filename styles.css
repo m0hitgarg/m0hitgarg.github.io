@@ -85,9 +85,21 @@ ul {
 }
 
 #linkedin:visited {
-  color: #0A5ECC;
+  color: #0077B5;
 }
 
 #github:visited {
   color: #000000;
+}
+
+#twitter:visited {
+  color: #33CCFF;
+}
+
+#email:visited {
+  color: #FA053E;
+}
+
+.contact i {
+  padding-right: 5px;
 }
