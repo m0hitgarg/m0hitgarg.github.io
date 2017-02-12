@@ -82,22 +82,22 @@ ul {
 
 .contact a:link {
   text-decoration: none;
-  color: black;
+
 }
 
-#linkedin:visited {
+#linkedin {
   color: #0077B5;
 }
 
-#github:visited {
+#github {
   color: #000000;
 }
 
-#twitter:visited {
+#twitter {
   color: #33CCFF;
 }
 
-#email:visited {
+#email {
   color: #FA053E;
 }
 
@@ -113,7 +113,9 @@ ul {
 
 .skills li {
   font-size: 1.3em;
-  display: inline;
-  margin-left: 96px;
-  margin-right: 96px;
+
+}
+
+.learning h1 {
+  font-size: 1.3em;
 }
