@@ -38,14 +38,13 @@ table {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    
 }
 
 .header h1 {
     font-size: 2em;
     font-weight: 700;
     text-align: center;
-    /*background-color: #bdc3c7;*/
+    background-color: #bdc3c7;
     padding: 10px 10px 10px 10px;
     /*color: white;*/
     /*margin-left: 250px;
@@ -55,8 +54,8 @@ body {
 .header p {
     font-size: 1.3em;
     padding: 10px 10px 10px 10px;
-    /*background-color: #000000;*/
-    /*color: white;*/
+    background-color: #000000;
+    color: white;
     text-align: center;
     /*margin-left: 250px;
     margin-right: 250px;*/
