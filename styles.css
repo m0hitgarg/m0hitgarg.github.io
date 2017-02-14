@@ -66,6 +66,7 @@ body {
     padding: 10px 10px 10px 10px;
     text-align: center;
     font-weight: 600;
+    background-color: #ED093F;
 }
 
 .contact li {
@@ -74,6 +75,7 @@ body {
     margin-left: 120px;
     margin-right: 120px;
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 ul {
@@ -109,13 +111,17 @@ ul {
   font-size: 1.6em;
   text-align: center;
   font-weight: 600;
+
 }
 
 .skills li {
   font-size: 1.3em;
+  background-color: yellow;
+  padding: 10px;
 
 }
 
 .learning h1 {
   font-size: 1.3em;
+  background-color: #ED093F;
 }
