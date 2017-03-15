@@ -92,6 +92,10 @@ section.about h1 {
   text-align: center;
 }
 
+section.about p {
+  padding: 0 120px 0 120px;
+}
+
 /*about css ends*/
 
 /*footer css starts*/
