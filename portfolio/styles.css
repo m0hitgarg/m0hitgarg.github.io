@@ -42,11 +42,78 @@ table {
 
 body {
   font-family: Lato;
-
+  /*background-color: #2D2A32;
+  color: #FEFFEA;*/
 }
 
-#main-logo {
+
+#logo {
   font-weight: 300;
   font-family: 'Nothing You Could Do', cursive;
   font-size: 40px;
+}
+
+ /*header css starts*/
+.header {
+  padding: 50px 50px 50px 50px;
+  margin:10px 10px 10px 10px;
+}
+.header h1 {
+  font-size: 70px;
+  padding-left: 500px;
+  padding-bottom: 5px;
+}
+.header h2 {
+  font-size: 50px;
+padding-left: 500px;
+padding-bottom: 5px;
+
+}
+
+.header h3 {
+  font-size: 30px;
+  padding-left: 500px;
+}
+ /*header css ends*/
+
+ /*about css starts*/
+section.about {
+  margin:20px 20px 20px 20px;
+  padding: 30px 30px 30px 30px;
+  font-size: 20px;
+  /*background-color: #2D2A32;*/
+  /*color: #FEFFEA;*/
+  color: #2D2A32;
+}
+
+section.about h1 {
+  font-size: 40px;
+  padding: 20px 0 20px 0;
+  text-align: center;
+}
+
+/*about css ends*/
+
+/*footer css starts*/
+
+.footer {
+  margin:20px 20px;
+  padding: 40px 40px 40px 40px;
+  /*background: #E4B363;*/
+  color: #2D2A32;
+}
+
+.footer h1 {
+  font-size: 30px;
+  padding:20px 20px 20px 45px;
+}
+
+.footer ul {
+  padding: 20px 20px 20px 20px;
+}
+.footer li{
+  display: inline;
+  padding-left: 180px;
+  padding-left: 180px;
+  font-size: 20px;
 }
