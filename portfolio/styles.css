@@ -44,17 +44,16 @@ body {
   font-family: Lato;
   /*background-color: #2D2A32;
   color: #FEFFEA;*/
+  font-weight: 300;
 }
 
 /*navbar css starts*/
  .navbar {
    padding-top: 5px;
     padding-bottom: 5px;
-    background-color: #000;
-    font-weight: 500;
+      font-weight: 500;
     letter-spacing: 2px;
-
- }
+    }
 
  .navbar-nav li a:hover {
      color: #1abc9c !important;
