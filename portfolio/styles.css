@@ -41,18 +41,16 @@ table {
 /*Reset CSS Ends*/
 
 body {
-  font-family: Lato;
+  font-family: 'Josefin Sans';
   /*background-color: #2D2A32;
   color: #FEFFEA;*/
-  font-weight: 300;
+  /*font-weight: 300;*/
 }
 
 /*navbar css starts*/
  .navbar {
    padding-top: 5px;
     padding-bottom: 5px;
-      font-weight: 500;
-    letter-spacing: 2px;
     }
 
  .navbar-nav li a:hover {
@@ -72,19 +70,19 @@ body {
   margin:10px 10px 10px 10px;
 }
 .header h1 {
-  font-size: 70px;
+  font-size: 60px;
   padding-left: 500px;
   padding-bottom: 5px;
 }
 .header h2 {
-  font-size: 50px;
+  font-size: 40px;
 padding-left: 500px;
 padding-bottom: 5px;
 
 }
 
 .header h3 {
-  font-size: 30px;
+  font-size: 20px;
   padding-left: 500px;
 }
  /*header css ends*/
@@ -96,8 +94,9 @@ section.about {
   font-size: 20px;
   /*background-color: #2D2A32;*/
   /*color: #FEFFEA;*/
-  color: #2D2A32;
+  /*color: #2D2A32;*/
 }
+
 
 section.about h1 {
   font-size: 40px;
