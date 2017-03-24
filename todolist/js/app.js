@@ -24,8 +24,10 @@ function completeItem() {
   var id = parent.id;
 
   var target = (id === 'todo') ? document.getElementById('completed'): document.getElementById('todo');
+  parent.removeChild(item);
 
-
+  target.insertBefore(item,target.childNodes[0]);
+}
 
 function addItemTodo(text){
   var list = document.getElementById('todo');
