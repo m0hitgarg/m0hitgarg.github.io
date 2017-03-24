@@ -7,52 +7,69 @@ body , input , button {
 header {
   width: 100%;
   height: 80px;
+
+  padding: 15px;
   position: fixed;
-  padding: 10px;
-  top: 0;       /* TODO:Google top left and z-index  */
+  top: 0;
   left: 0;
-  z-index: 5px;
+  z-index: 5;
+
   background: #25b99a;
+  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
 }
 
 header input {
   width: 100%;
   height: 50px;
   float: left;
-  color:#fff;
+  color: #fff;
   font-size: 15px;
   font-weight: 400;
-  text-indent: 20px;
-  background: rgba(255,255,255,0.2);
-  border-bottom-right-radius: 25px;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  text-indent: 18px;
+  padding: 0 60px 0 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px 25px 25px 5px;
+  border: 0px;
   box-shadow: none;
   outline: none;
 
--webkit-appearance:none ;
--moz-appearance:none ;
--ms-appearance:none ;    /* TODO: Google appearance outline */
--o-appearance:none ;
-appearance:none ;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-border input ::-webkit-input-placeholder {
+header input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.75);
 }
 
-border input :-moz-input-placeholder {
+header input:-moz-input-placeholder {
   color: rgba(255, 255, 255, 0.75);
 }
                                               /*Browser Compatable Fixes*/
-border input ::-moz-input-placeholder {
+header input::-moz-input-placeholder {
   color: rgba(255, 255, 255, 0.75);
 }
 
-border input ::-ms-input-placeholder {
+header input::-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.75);
+}
+
+header button {
+  width: 50px;
+  height:50px;
+
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+
+  border-radius: 25px;
+  background: #fff;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
