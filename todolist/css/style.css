@@ -161,3 +161,20 @@ ul.todo li .buttons button:last-of-type::before {
   background: #edf0f1;
 
 }
+
+ul.todo li .buttons button svg {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+}
+
+ul.todo li .buttons button.remove svg .fill {
+  fill:#c0cecb;
+}
+
+ul.todo li .buttons button.remove:hover svg .fill {
+  fill:#e85656;
+}
