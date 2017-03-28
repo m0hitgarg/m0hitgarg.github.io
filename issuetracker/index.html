@@ -8,15 +8,18 @@
     <title>JS Issue Tracker</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body onload="fetchIssues()">
     <div class="container">
-        <h1>JS Issue Tracker</h1>
+      <div class="header clearfix">
+        <h1 class="text-muted">JS Issue Tracker</h1>
+
+      </div>
         <div class="jumbotron">
-            <h3>Add New Issue</h3>
+            <h2>Add New Issue</h2>
             <form id="issueForm">
                 <div class="form-group">
                     <label for="issueDescription">Description</label>
@@ -42,6 +45,10 @@
         <div id="issueList">
 
         </div>
+
+        <footer class="footer">
+        <p>&copy; 2017 IssueTracker, Inc.</p>
+      </footer>
 
 
         <script src="https://chancejs.com/chance.min.js" charset="utf-8"></script>
