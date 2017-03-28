@@ -9,6 +9,12 @@ function saveIssue(e) {
   var issueID = chance.guid();
   var issueStatus = 'Open';
 
+if(!issueDescription || !issueAssigned) {
+  alert('Please fill in the valid details!');
+  return false;
+}
+
+
   var issue = {
     id:issueID,
     description:issueDescription,
