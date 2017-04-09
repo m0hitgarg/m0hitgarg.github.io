@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mohit&#39;s Blog</title>
+  <title>Styling In React | Mohit&#39;s Blog</title>
 
   
   <meta name="author" content="Mohit Garg">
   
 
   
+  <meta name="description" content="Styling in React is a little different than usual. It’s core idea id to have our app visual pieces be self contained and reusable. That is why all of ">
+  
 
+  
+  
+  <meta name="keywords" content="">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
+  <meta property="og:title" content="Styling In React"/>
 
   <meta property="og:site_name" content="Mohit&#39;s Blog"/>
 
@@ -56,12 +61,11 @@
 </header>
 
     <main class="site-main posts-loop">
-    
-  <article>
+    <article>
 
   
     
-    <h3 class="article-title"><a href="/2017/03/05/styling-in-react/"><span>Styling In React</span></a></h3>
+    <h3 class="article-title"><span>Styling In React</span></h3>
     
   
 
@@ -106,149 +110,38 @@
     </div>
 
     
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/03/05/styling-in-react/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
   </div>
 </article>
 
-
-
-  <article>
-
   
-    
-    <h3 class="article-title"><a href="/2017/03/03/React-JSX/"><span>React-JSX</span></a></h3>
-    
-  
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/03/03/React-JSX/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-03-03T12:13:02.000Z">
-          2017-Mar-03
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><p>JavaScript syntax extension. It produces react elements.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> element = &lt;h1&gt;Hello, world!&lt;/h1&gt;; <span class="comment">// Babel compiles this JSX code into the Javascript code written below</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> element = React.createElement(</div><div class="line"><span class="string">'h1'</span>,</div><div class="line"><span class="literal">null</span>,</div><div class="line"><span class="string">'Hello, world!'</span></div><div class="line">);</div></pre></td></tr></table></figure>
-<p>Javascript expression can be embedded in JSX using the curly braces <code>{}</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="string">`Hello <span class="subst">$&#123;name&#125;</span>`</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> element =&lt;div&gt;&#123;person("mohit")&#125;&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">element,</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>After compiling JSX expressions become regular JS objects.</p>
-<h4 id="Attributes-in-JSX"><a href="#Attributes-in-JSX" class="headerlink" title="Attributes in JSX"></a>Attributes in JSX</h4><p>We can use quotes <code>&quot;&quot;</code> to specify string literals as attributes or using curly braces <code>{}</code> to use JS expressions in an attribute.</p>
-<p>React elements are immutable. These are the smallest building blocks of react app. Components are made of elements</p>
-<p>All React components must act like pure functions with respect to their props.</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/03/03/React-JSX/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/02/28/hello-world/"><span>Hello-World</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/02/28/hello-world/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-28T13:12:35.000Z">
-          2017-Feb-28
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>This word has a significant meaning in the world of programming. Almost every developer who starts off their journey in programming use <code>Hello World</code> as their first program. It is traditionally used to introduce novice programmers to a programming language and you are saying to the world, that your programming environment is ready and that you have the basic understanding necessary to use it. Just like <code>Hello World</code> this is my first <strong>Hello World</strong> blog post. I will be posting about every resource, book, tutorial I came across during my journey in programming. The only purpose of this blog is to document all the learning material and my struggle along the way and share it with the developer community. I hope we all can learn new things from one another and I hope you find something helpful in my post’s that may help you in your journey.</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/programming/">programming</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/02/28/hello-world/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
+	<script type="text/javascript">
+	var disqus_shortname = 'mohit-blog';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
 
 
 
 
-<nav class="pagination">
-  
-  
-</nav>
+
     </main>
 
     <footer class="site-footer">
