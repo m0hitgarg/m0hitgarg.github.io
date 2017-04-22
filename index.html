@@ -1,1 +1,222 @@
-<!DOCTYPE HTML><html><head><meta charset="utf-8"><title>Mohit&#39;s Blog</title><meta name="author" content="Mohit Garg"><meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta property="og:site_name" content="Mohit&#39;s Blog"><meta property="og:image" content="/favicon.ico"><link href="/favicon.ico" rel="icon"><link rel="alternate" href="/atom.xml" title="Mohit&#39;s Blog" type="application/atom+xml"><link rel="stylesheet" href="/css/style.css" media="screen" type="text/css"></head><body><div class="blog"><div class="content"><header><div class="site-branding"><h1 class="site-title"><a href="/">Mohit&#39;s Blog</a></h1><p class="site-description"></p></div><nav class="site-navigation"><ul><li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li><li><a href="/about">About</a></li><li><a href="/tags">Tags</a></li></ul></nav></header><main class="site-main posts-loop"><article><h3 class="article-title"><a href="/2017/03/14/ES6-let-and-const/"><span>ES6-let and const</span></a></h3><div class="article-top-meta"><span class="posted-on"><a href="/2017/03/14/ES6-let-and-const/" rel="bookmark"><time class="entry-date published" datetime="2017-03-14T11:47:17.000Z">2017-Mar-14</time></a></span></div><div class="article-content"><div class="entry"><p><strong>Variable</strong>- Formally known as binding as a name is bound to a value inside a scope.</p><p><strong>Block Level Scoping</strong>- Variables that are inaccessible outside a given block scope. Also known as lexical scope. Created inside these following places:</p><ul><li>Inside a function</li><li>Inside a block(<code>{}</code>)</li></ul><p><strong>Introducing let declarations</strong>- The syntax is same as the <code>var</code>. <code>let</code> declarations are not hoisted onto the top of enclosing block. It’s best to place them first in the block so they are accessible to the entire block.</p><p>Cannot Redeclare the variable like we do in <code>var</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> count = <span class="number">40</span>;</div><div class="line"><span class="keyword">var</span> count = <span class="number">20</span>;</div><div class="line"><span class="comment">//No Error even in strict mode</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> count = <span class="number">20</span>;</div><div class="line"><span class="comment">//Error-Identifier 'count' has already been declared with var. Error-If in the same scope or block;</span></div><div class="line"><span class="keyword">let</span> foo = <span class="number">20</span>;</div><div class="line"><span class="keyword">let</span> foo = <span class="number">30</span>;</div><div class="line"><span class="comment">// Error- Identifier 'foo' has already been declared</span></div></pre></td></tr></table></figure><p><strong>const declaration</strong> - Variables declaring <code>const</code> are considered constants meaning their values cannot be changed once set. <code>const</code> is block level variable and it’s declarations is not hoisted as well.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Valid Declaration</span></div><div class="line"><span class="keyword">const</span> count = <span class="number">20</span>;</div><div class="line">count = <span class="number">10</span>;</div><div class="line"><span class="comment">// Error- Assignment to constant variable.Cannot be assigned to a new value later.</span></div><div class="line"><span class="keyword">const</span> foo;</div><div class="line"><span class="comment">// Error-Missing Initialization</span></div></pre></td></tr></table></figure><p>The value a <code>const</code> hold can be modified if it’s an Object. <code>const</code> prevents modification of the variable not modification of the bound value.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> obj = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"John"</span></div><div class="line">&#125;</div><div class="line"> obj.name = <span class="string">"Jane"</span>;</div><div class="line"><span class="comment">// No error</span></div><div class="line"></div><div class="line"><span class="comment">// Throws an Error.</span></div><div class="line">obj = &#123;</div><div class="line">    <span class="attr">name</span>:<span class="string">"Jane"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure><p><strong>Temporal dead zone(TDZ)</strong> - <code>let</code> and <code>const</code> bindings are not hoisted so they can’t accessible before their declaration. Any attempt to access the variable results in runtime error.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> count); <span class="comment">// Throws an Error</span></div><div class="line">    <span class="keyword">let</span> count = <span class="number">10</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p><strong>Block binding in loops</strong>- Only the loop will have access to the count variable and is meant to use only inside the loop.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span> ; i++) &#123;</div><div class="line">    a[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(i);&#125;</div><div class="line">&#125;</div><div class="line">a[<span class="number">0</span>](); <span class="comment">// 5</span></div><div class="line">a[<span class="number">1</span>](); <span class="comment">// 5 // The reason is i is shared across each iteration of the loop meaning all the functions hold a reference to the same variable.To fix this developers used IIFEs to force a new copy of the variable each time</span></div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span> ; i++) &#123;</div><div class="line">    a[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(i);&#125;</div><div class="line">&#125;</div><div class="line">a[<span class="number">0</span>](); <span class="comment">// 0 Block Scope Binding simplifies this problem for us. This loop works the same as the IIFE but a lot cleaner code.let creates a new variable each time</span></div><div class="line">a[<span class="number">1</span>](); <span class="comment">// 1</span></div></pre></td></tr></table></figure><p><code>const</code> behaves differently in loops. If we use <code>const</code> in a <code>for</code> loop it will throw an error after the first iteration but it can be used with <code>for-in</code> loop(because the loop creates a new binding on each itertion ) and works the same way as <code>let</code>.</p><p><strong>Global block binding</strong> - When <code>var</code> is used in the global scope it creates a new global variable which is a property on the global object(window in browser) that means we can accidentally overwrite an existing global using <code>var.</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.RegExp); <span class="comment">// function RegExp() &#123; [native code] &#125;</span></div><div class="line"><span class="keyword">var</span> <span class="built_in">RegExp</span> = <span class="number">20</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>); <span class="comment">// 20 Original RegExp is overwritten by our var declaration.</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.RegExp); <span class="comment">// 20</span></div></pre></td></tr></table></figure><p>if we use <code>let</code> or <code>const</code> instead in the global scope a new binding is created in the global scope but no property is added to the global object. This means we cannot overwrite a global variables. This makes <code>let</code> and <code>const</code> much safer to use in the global scope.</p><p><em>Best practice - use <code>const</code> by default and only use <code>let</code> when you know a variable value need to change. The rationale is the most variables should not change their value after initialization because unexpected value changes are a source of bugs.</em></p></div></div><div class="article-footer"><div class="article-meta pull-left"><span class="post-tags"><i class="icon-tags"></i> <a href="/tags/JavaScript/">JavaScript</a></span></div><div class="article-meta pull-right"><span><i class="icon-comments"></i> <span><a href="/2017/03/14/ES6-let-and-const/#comment">Comments</a></span></span></div></div></article><article><h3 class="article-title"><a href="/2017/03/05/styling-in-react/"><span>Styling In React</span></a></h3><div class="article-top-meta"><span class="posted-on"><a href="/2017/03/05/styling-in-react/" rel="bookmark"><time class="entry-date published" datetime="2017-03-05T04:14:28.000Z">2017-Mar-05</time></a></span></div><div class="article-content"><div class="entry"><p>Styling in React is a little different than usual. It’s core idea id to have our app visual pieces be self contained and reusable. That is why all of our HTML,CSS and JS all are in the same little black box we call component.</p><p>They way you specify styles in component is to define an object who properties are the same as we define the normal CSS properties and then assign the object to the JSX element by using the <code>style</code> attribute.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Superhero</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">const</span> Style = &#123;</div><div class="line">      <span class="attr">backgroundColor</span>:<span class="keyword">this</span>.props.color,</div><div class="line">      <span class="attr">fontFamily</span>:<span class="string">"Open Sans"</span>,</div><div class="line">      <span class="attr">fontSize</span>:<span class="number">90</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div style=&#123;Style&#125;&gt;</div><div class="line">       &#123;this.props.children&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div&gt;</div><div class="line">  &lt;Superhero color='blue'&gt;Superman&lt;/Superhero&gt;</div><div class="line">  &lt;Superhero color='green'&gt;Hulk&lt;/Superhero&gt;</div><div class="line">  &lt;Superhero color='black'&gt;Batman&lt;/Superhero&gt;</div><div class="line">  &lt;Superhero color='yellow'&gt;Iron Man&lt;/Superhero&gt;</div><div class="line">  &lt;Superhero color='red'&gt;Flash&lt;/Superhero&gt;</div><div class="line">  &lt;/div&gt;,  </div><div class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">);</div></pre></td></tr></table></figure><p>Single word CSS properties(like padding, margin, color) remains unchanged and Multi word CSS properties(like font-family, font-style, background-color) are turned into camel case words with the dash <code>-</code> removed. As you can see above we didn’t use the <code>px</code> suffix in our style property. React allows us to omit the <em>px</em> suffix for a bunch of CSS properties.</p><p>Now if you preview this in the browser this will output as:</p><p><img src="http://i.imgur.com/ic2jmjX.png" alt="stylingreact"></p><p><strong>Pretty Cool Right!!!</strong></p><h2 id="React-Gotcha"><a href="#React-Gotcha" class="headerlink" title="React Gotcha:"></a>React Gotcha:</h2><blockquote><p>If you need to specify a <strong>Vendor-prefixed</strong> version of a CSS property instead of first letter being <em>camelCase</em> like this <code>webkitFilter</code>, the first letter is actually capitalized like this <code>WebkitFilter</code><br>We can even specify a separate background color for each of our Superhero’s.</p></blockquote><p>For further information checkout the <a href="https://facebook.github.io/react/docs/dom-elements.html" target="_blank" rel="external">docs</a></p><p><img src="http://img09.deviantart.net/0248/i/2013/295/d/8/that_s_all_folks__by_surrimugge-d6rfav1.png" alt="fin!"></p></div></div><div class="article-footer"><div class="article-meta pull-left"><span class="post-tags"><i class="icon-tags"></i> <a href="/tags/React/">React</a></span></div><div class="article-meta pull-right"><span><i class="icon-comments"></i> <span><a href="/2017/03/05/styling-in-react/#comment">Comments</a></span></span></div></div></article><article><h3 class="article-title"><a href="/2017/03/03/React-JSX/"><span>React-JSX</span></a></h3><div class="article-top-meta"><span class="posted-on"><a href="/2017/03/03/React-JSX/" rel="bookmark"><time class="entry-date published" datetime="2017-03-03T12:13:02.000Z">2017-Mar-03</time></a></span></div><div class="article-content"><div class="entry"><h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><p>JavaScript syntax extension. It produces react elements.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> element = &lt;h1&gt;Hello, world!&lt;/h1&gt;; <span class="comment">// Babel compiles this JSX code into the Javascript code written below</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> element = React.createElement(</div><div class="line"><span class="string">'h1'</span>,</div><div class="line"><span class="literal">null</span>,</div><div class="line"><span class="string">'Hello, world!'</span></div><div class="line">);</div></pre></td></tr></table></figure><p>Javascript expression can be embedded in JSX using the curly braces <code>{}</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="string">`Hello <span class="subst">$&#123;name&#125;</span>`</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> element =&lt;div&gt;&#123;person("mohit")&#125;&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">element,</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>)</div><div class="line">);</div></pre></td></tr></table></figure><p>After compiling JSX expressions become regular JS objects.</p><h4 id="Attributes-in-JSX"><a href="#Attributes-in-JSX" class="headerlink" title="Attributes in JSX"></a>Attributes in JSX</h4><p>We can use quotes <code>&quot;&quot;</code> to specify string literals as attributes or using curly braces <code>{}</code> to use JS expressions in an attribute.</p><p>React elements are immutable. These are the smallest building blocks of react app. Components are made of elements</p><p>All React components must act like pure functions with respect to their props.</p></div></div><div class="article-footer"><div class="article-meta pull-left"><span class="post-tags"><i class="icon-tags"></i> <a href="/tags/JavaScript/">JavaScript</a><a href="/tags/React/">React</a></span></div><div class="article-meta pull-right"><span><i class="icon-comments"></i> <span><a href="/2017/03/03/React-JSX/#comment">Comments</a></span></span></div></div></article><article><h3 class="article-title"><a href="/2017/02/28/hello-world/"><span>Hello-World</span></a></h3><div class="article-top-meta"><span class="posted-on"><a href="/2017/02/28/hello-world/" rel="bookmark"><time class="entry-date published" datetime="2017-02-28T13:12:35.000Z">2017-Feb-28</time></a></span></div><div class="article-content"><div class="entry"><h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>This word has a significant meaning in the world of programming. Almost every developer who starts off their journey in programming use <code>Hello World</code> as their first program. It is traditionally used to introduce novice programmers to a programming language and you are saying to the world, that your programming environment is ready and that you have the basic understanding necessary to use it. Just like <code>Hello World</code> this is my first <strong>Hello World</strong> blog post. I will be posting about every resource, book, tutorial I came across during my journey in programming. The only purpose of this blog is to document all the learning material and my struggle along the way and share it with the developer community. I hope we all can learn new things from one another and I hope you find something helpful in my post’s that may help you in your journey.</p></div></div><div class="article-footer"><div class="article-meta pull-left"><span class="post-tags"><i class="icon-tags"></i> <a href="/tags/programming/">programming</a></span></div><div class="article-meta pull-right"><span><i class="icon-comments"></i> <span><a href="/2017/02/28/hello-world/#comment">Comments</a></span></span></div></div></article><nav class="pagination"></nav></main><footer class="site-footer"><p class="site-info">Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a><br>&copy; 2017 Mohit Garg</p></footer><script>!function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src="//www.google-analytics.com/analytics.js",s.parentNode.insertBefore(o,s)}(window,document,"script",0,"ga"),ga("create","UA-97252515-1","auto"),ga("send","pageview")</script></div></div></body></html>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Mohit Garg | Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="assets/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="assets/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="assets/favicons/manifest.json">
+		<link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="https://avatars2.githubusercontent.com/u/14136405?v=3&s=460" alt="" /></span>
+							<h1 id="title">Mohit Garg</h1>
+							<p>Front End Web Developer</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portfolio</span></a></li>
+								<li><a href="#skills" id="skills-link" class="skel-layers-ignoreHref"><span class="icon fa-code">Skills</span></a></li>
+								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://twitter.com/_mohitgarg" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Hi! My name is<strong> Mohit Garg</strong><br/>I'm a Front End Web Developer</h2>
+								<p>I make art with code.<br />Let's work on something great together.</p>
+							</header>
+
+							<footer>
+								<a href="#contact" class="button scrolly">Grab a Coffee <i class="fa fa-coffee" aria-hidden="true"></i></a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Portfolio</h2>
+							</header>
+
+							<p>I have worked on a number of projects in both Front End and Back End. Currently I am working on React and Node. Some of my best works in these technologies are listed below with their Github links. Feel free to snoop around.</p>
+
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+										<header>
+											<h3>Ipsum Feugiat</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+										<header>
+											<h3>Rhoncus Semper</h3>
+										</header>
+									</article>
+								</div>
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="https://mohit.js.org/todolist/index.html" class="image fit" target="_blank"><img src="http://imgur.com/XmZbrQT.png" alt="A todolist Image"/></a>
+										<header>
+											<h3>Todo List</h3>
+											<p>A Todo app made with vanilla JavaScript and SVG</p>
+										</header>
+									</article>
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+										<header>
+											<h3>Natoque Vitae</h3>
+										</header>
+									</article>
+								</div>
+								<div class="4u$ 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+										<header>
+											<h3>Dolor Penatibus</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										<header>
+											<h3>Orci Convallis</h3>
+										</header>
+									</article>
+								</div>
+							</div>
+
+
+						</div>
+					</section>
+
+					<!-- Skills -->
+					<section id="skills" class="three">
+						<div class="container">
+							<header>
+								<h2>Skills</h2>
+							</header>
+							<ul class="skill-list">
+								<li>HTML5</li>
+								<li>CSS3</li>
+								<li>JavaScript</li>
+								<li>jQuery</li>
+								<li>React</li>
+								<li>Webpack</li>
+								<li>Nodejs</li>
+								<li>Git/Github</li>
+								<li>BootStrap</li>
+								<li>JSON/RESTful API</li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- About Me -->
+					<section id="about" class="three">
+						<div class="container">
+
+							<header>
+								<h2>About Me</h2>
+							</header>
+
+							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+
+							<p>A self taught programmer and passionate about my work. I love to build for the web and help open source build aweosme technologies. I have a desire to learn, grow and evolve constantly into becoming the best damn version of myself. I thrives on environments that constantly evolve and use new technologies. I'm also a volunteer CS teacher. I love helping others learn to code while still learning new skills everyday. Whenever I'm not coding, I love to Read, listen to good music, and Google things randomly.</p>
+
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Get in touch</h2>
+							</header>
+
+							<p>Want to work together? I’d love to hear from you.Drop me a note in the form below</p>
+
+							<form method="post" action="http://www.focuspocus.io/magic/c93cffdb11aeb57ada7151691e7a2212">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" />
+									<small>I'll never share your email with anyone else.</small>
+									</div>
+
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+									<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Mohit Garg. All rights reserved.</li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
