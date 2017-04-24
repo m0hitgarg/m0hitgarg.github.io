@@ -2567,11 +2567,11 @@
 }
 
 article.item:hover {
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 8px 6px rgba(0,0,0,0.22);
 	transition: .2s;
 }
 
 .skill-list li:hover {
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 8px 6px rgba(0,0,0,0.22);
 	transition: .2s;
 }
